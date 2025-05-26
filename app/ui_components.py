@@ -1,17 +1,8 @@
 import streamlit as st
 
 def render_css():
-    st.markdown("""<style>
-# Configuración de la página
-st.set_page_config(
-    page_title="📚 Tutor Inteligente RAG",
-    page_icon="📚",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# CSS personalizado para mejorar el diseño
-st.markdown("""
+    """Renderiza los estilos CSS personalizados"""
+    st.markdown("""
 <style>
     .main-header {
         font-size: 3rem;
@@ -60,4 +51,5 @@ st.markdown("""
         border-left: 4px solid #ffc107;
         margin: 1rem 0;
     }
-</style>""", unsafe_allow_html=True)
+</style>
+""", unsafe_allow_html=True)
