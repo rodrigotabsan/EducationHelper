@@ -1,10 +1,10 @@
 import streamlit as st
 import os
-from app.config import get_openai_api_key
-from app.document_processor import DocumentProcessor
-from app.rag_engine import RAGEngine
-from app.session_manager import init_session
-from app.ui_components import render_css
+from app.config import get_openai_api_key # Clase que ayuda a configurar la api key de openai
+from app.document_processor import DocumentProcessor # Permite procesar el documento cargado en la interfaz para ayudar al estudiante
+from app.rag_engine import RAGEngine # Construye el RAG con el tipo de LLM, el prompt, el documento dividido en chunks y los vectores calculados
+from app.session_manager import init_session #ayuda a crear valores por defecto
+from app.ui_components import render_css # permite añadir los css necesarios para la interfaz.
 
 def main():
     # Configuración de página DEBE ir primero
@@ -34,7 +34,7 @@ def main():
         
         st.markdown("---")
         
-        # Nivel de conocimiento
+        # Nivel de conocimiento del estudiante. Lo marcará en el menu de la izquierda de la pantalla
         st.markdown("### 🎓 Nivel de Conocimiento")
         knowledge_level = st.selectbox(
             "Selecciona tu nivel:",
@@ -42,7 +42,7 @@ def main():
             help="Este nivel determinará la complejidad de las explicaciones"
         )
         
-        # Descripción del nivel
+        # Descripción del nivel del estudiante
         level_descriptions = {
             "Principiante": "📚 Explicaciones básicas con ejemplos simples",
             "Intermedio": "🔍 Explicaciones detalladas con ejemplos prácticos", 
@@ -55,7 +55,7 @@ def main():
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        # Carga de documento
+        # Carga del documento que se quiere aprender en formatos pdf, docx y pptx
         st.markdown('<div class="file-upload">', unsafe_allow_html=True)
         st.markdown('<h3 class="section-header">📁 Cargar Documento</h3>', unsafe_allow_html=True)
         
@@ -64,17 +64,18 @@ def main():
             type=["pdf", "docx", "pptx"],
             help="Formatos: PDF, Word, PowerPoint"
         )
-        
+
+        # Si el documento está cargado y la api está rellena y el documento no está procesado ponemos el mensaje
         if uploaded_file and api_key and not st.session_state.document_processed:
             with st.spinner("🔄 Procesando documento..."):
                 try:
                     processor = DocumentProcessor()
                     text = processor.process(uploaded_file)
                     
-                    engine = RAGEngine()
-                    chunks = engine.split_text(text)
-                    vectorstore = engine.create_vectorstore(chunks)
-                    prompt = engine.get_prompt()
+                    engine = RAGEngine() # Llamamos a la clase del fichero rag_engine.py
+                    chunks = engine.split_text(text) #Dividimos el documento en chunks
+                    vectorstore = engine.create_vectorstore(chunks) # Y ahora creamos los vectores a partir de los chunks
+                    prompt = engine.get_prompt() # Usamos el prompt personalizado
                     qa_chain = engine.build_qa_chain(vectorstore, prompt)
                     
                     st.session_state.vectorstore = vectorstore
@@ -90,7 +91,7 @@ def main():
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Estado del sistema
+        # Estado del sistema. Se marcará en verde si el documento fue procesado correctamente
         if st.session_state.document_processed:
             st.success("🟢 Sistema listo")
         else:
