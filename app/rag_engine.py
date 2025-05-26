@@ -20,7 +20,7 @@ class RAGEngine:
 
     def get_prompt(self):
         return PromptTemplate(
-            input_variables=["context", "question"],  # Solo estas 2
+            input_variables=["context", "question", "knowledge_level"],
             template="""
 Ámbito Profesional: Educación. Específicamente un profesor con un perfil profesional en la materia de lo que se pregunta.
 
