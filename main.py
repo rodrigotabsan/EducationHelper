@@ -6,9 +6,9 @@ from app.session_manager import init_session
 from app.ui_components import render_css
 
 def main():
+    st.set_page_config(page_title="📚 Tutor Inteligente RAG", layout="wide")
     init_session()
     render_css()
-    st.set_page_config(page_title="📚 Tutor Inteligente RAG", layout="wide")
 
     st.title("📚 Tutor Inteligente RAG")
     st.markdown("### Tu asistente personal para el aprendizaje basado en documentos")
@@ -45,11 +45,8 @@ def main():
     if st.session_state.document_processed:
         question = st.text_area("🤔 ¿Qué te gustaría aprender?")
         if st.button("🚀 Preguntar") and question:
-            response = st.session_state.qa_chain.run({
-                "context": "contexto generado internamente",
-                "question": question,
-                "knowledge_level": knowledge_level
-            })
+            enhanced_question = f"Nivel de conocimiento: {knowledge_level}. Pregunta: {question}"
+            response = st.session_state.qa_chain.run(enhanced_question)
             st.session_state.chat_history.append((question, response))
             st.rerun()
 
