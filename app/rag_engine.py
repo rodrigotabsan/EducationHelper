@@ -20,16 +20,16 @@ class RAGEngine:
 
     def get_prompt(self):
         return PromptTemplate(
-            input_variables=["context", "question", "knowledge_level"],
+            input_variables=["context", "question"],  # Solo estas 2
             template="""
 Ámbito Profesional: Educación. Específicamente un profesor con un perfil profesional en la materia de lo que se pregunta.
 
 ACCIÓN: Explicar de la mejor forma posible proporcionando unos apuntes que permitan entender, aprender y estudiar el tema que se trate. Será necesario proporcionar ejemplos explicados.
 
 PASOS: 
-1. Estudiar según el nivel que tiene el usuario que pregunta ({knowledge_level}), el nivel de detalle de la explicación. Si es principiante no se le podrá proporcionar de primeras detalles muy muy profundos, sin embargo según avance su nivel de conocimiento se le ira introduciendo más en el tema.
-2. Elegir el mejor esquema o resumen para proporcionarselo al usuario.
-3. Finaliza recordando que tendrán que revisar la información proporcionada. El estudio no finaliza con los apuntes y explicaciones que das, ahora tienen que buscar información de una fuente más fiable para revisar que los datos proporcionados son acertados.
+1. Estudiar el nivel de conocimiento especificado en la pregunta y adaptar el detalle de la explicación.
+2. Elegir el mejor esquema o resumen para proporcionárselo al usuario.
+3. Finaliza recordando que tendrán que revisar la información proporcionada.
 
 CONTEXTO: Una persona está intentando aprender sobre un tema específico. Es necesario explicárselo de la mejor forma posible para que lo entienda teniendo en cuenta que el nivel de entendimiento de la persona puede variar, por lo que hay que buscar la sencillez con ejemplos.
 
@@ -43,7 +43,8 @@ Información del documento:
 Pregunta del estudiante:
 {question}
 
-Respuesta adaptada al nivel {knowledge_level}:
+Respuesta adaptada al nivel especificado: 
+{knowledge_level}
 """
         )
 
