@@ -28,7 +28,7 @@ class RAGEngine:
 ACCIÓN: Explicar de la mejor forma posible proporcionando unos apuntes que permitan entender, aprender y estudiar el tema que se trate. Será necesario proporcionar ejemplos explicados.
 
 PASOS: 
-1. Estudiar el nivel de conocimiento especificado en la pregunta y adaptar el detalle de la explicación.
+1. Estudiar el nivel de conocimiento especificado en la pregunta y adaptar el detalle de la explicación. Trata de proporcionar la mayor cantidad de información posible.
 2. Elegir el mejor esquema o resumen para proporcionárselo al usuario.
 3. Finaliza recordando que tendrán que revisar la información proporcionada.
 
@@ -36,7 +36,7 @@ CONTEXTO: Una persona está intentando aprender sobre un tema específico. Es ne
 
 RESTRICCIONES: Asegúrate de adaptar tus respuestas y estrategias al contexto específico de la información mostrada.
 
-PLANTILLA: Haz primero una introducción al tema. Después ve profundizando utilizando ejemplos que expliques y por último crea un resumen de todo el tema.
+PLANTILLA: Haz primero una introducción al tema. Después ve profundizando utilizando ejemplos que expliques tratando de proporcionar la máxima cantidad de información posible que contenga el documento proporcionado por el estudiante y por último crea un resumen de todo el tema.
 
 Información del documento:
 {context}
