@@ -7,7 +7,7 @@ from langchain.llms import OpenAI
 
 class RAGEngine:
 
-    def __init__(self, temperature=0.3):
+    def __init__(self, temperature=0.7):
         self.llm = OpenAI(temperature=temperature)
 
     def split_text(self, text):
