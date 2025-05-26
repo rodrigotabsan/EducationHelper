@@ -1,7 +1,7 @@
 import streamlit as st
 
 def render_css():
-    """Renderiza los estilos CSS personalizados"""
+    """Renderiza los estilos CSS personalizados para la aplicación"""
     st.markdown("""
 <style>
     .main-header {
