@@ -16,7 +16,7 @@ An interactive educational application based on RAG (Retrieval-Augmented Generat
 1. Clone the repository
 
 git clone https://github.com/rodrigotabsan/educationhelper.git  
-cd intelligent-tutor-rag
+cd educationhelper
 
 2. Create a virtual enviroment
 
