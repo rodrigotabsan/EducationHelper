@@ -44,9 +44,9 @@ def main():
         
         # Descripción del nivel del estudiante
         level_descriptions = {
-            "Principiante": "📚 Explicaciones básicas con ejemplos simples",
-            "Intermedio": "🔍 Explicaciones detalladas con ejemplos prácticos", 
-            "Avanzado": "🎯 Explicaciones profundas con análisis crítico"
+            "Principiante": "Explicaciones básicas con ejemplos simples",
+            "Intermedio": "Explicaciones detalladas con ejemplos prácticos", 
+            "Avanzado": "Explicaciones profundas con análisis crítico"
         }
         st.info(level_descriptions[knowledge_level])
         st.markdown('</div>', unsafe_allow_html=True)
@@ -112,17 +112,17 @@ def main():
         # Input para preguntas
         if st.session_state.document_processed and api_key:
             question = st.text_area(
-                "🤔 ¿Qué te gustaría aprender?",
+                "**¿Qué te gustaría aprender?**",
                 placeholder="Escribe tu pregunta sobre el documento...",
                 height=100
             )
             
             col_a, col_b = st.columns([1, 4])
             with col_a:
-                ask_button = st.button("🚀 Preguntar", type="primary")
+                ask_button = st.button("❔ Preguntar", type="primary")
             
             if ask_button and question:
-                with st.spinner("🤖 Generando explicación personalizada..."):
+                with st.spinner("**Generando explicación personalizada...**"):
                     try:
                         # Usar diccionario con las 3 variables
                         enhanced_question = f"Nivel de conocimiento del estudiante: {knowledge_level}. Pregunta: {question}"
