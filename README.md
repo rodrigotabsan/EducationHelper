@@ -32,6 +32,8 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
+Don't forget to add a .env file with the api_keys!
+
 4. How to use the app
 
 streamlit run app.py
