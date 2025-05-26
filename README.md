@@ -15,7 +15,7 @@ An interactive educational application based on RAG (Retrieval-Augmented Generat
 ## 📦 Requirements
 1. Clone the repository
 
-git clone https://github.com/rodrigotabsan/educationhelper.git
+git clone https://github.com/rodrigotabsan/educationhelper.git  
 cd intelligent-tutor-rag
 
 2. Create a virtual enviroment
@@ -42,10 +42,10 @@ The AI will respond under the following framework:
 
 * Professional Scope: Education
 * Action: Explain with examples and create study notes
-* Steps: 
-  Adaptation to user's level
- , Selection of the best outline or summary
- , Recommendation to search for additional sources
+* Steps:   
+  Adaptation to user's level  
+  Selection of the best outline or summary  
+  Recommendation to search for additional sources  
 * Context: Guided learning
 * Restrictions: Always adapt the response to the shown context
 * Template: Introduction + Explanation with examples + Final summary
