@@ -3,13 +3,13 @@ An interactive educational application based on RAG (Retrieval-Augmented Generat
 
 ## 🚀 Main Features
 
-✅ Document upload: PDF, Word (.docx) and PowerPoint (.pptx)
-✅ Automatic content extraction
-✅ Knowledge level selector: Beginner, Intermediate, Advanced
-✅ Personalized explanation generation with LangChain + OpenAI
-✅ Modern and responsive interface with Streamlit
-✅ Conversation history per session
-✅ Clear pedagogical structure: introduction, development with examples and final summary
+* Document upload: PDF, Word (.docx) and PowerPoint (.pptx)
+* Automatic content extraction
+* Knowledge level selector: Beginner, Intermediate, Advanced
+* Personalized explanation generation with LangChain + OpenAI
+* Modern and responsive interface with Streamlit
+* Conversation history per session
+* Clear pedagogical structure: introduction, development with examples and final summary
 
 
 ## 📦 Requirements
